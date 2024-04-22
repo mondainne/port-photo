@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url(Topographic-Map-3.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            /* overflow: hidden; */ /* Commentez ou supprimez cette ligne */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Utilisation de min-height au lieu de height */
+        }
+
+        #photo {
+            position: relative;
+            cursor: pointer;
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        #photo img {
+            width: 60%;
+            height: auto;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            position: absolute;
+            top: 0;
+            left: 50;
+        }
+
+        #photo img.active {
+            opacity: 1;
+        }
+
+        p.name {
+            position: absolute;
+            top: 25%;
+            left: 60%;
+            transform: translate(-0%, -0%) rotate(90deg);
+            font-family: wandorf;
+            font-size: 150px; /* Modification de la taille du texte */
+            color: #ACC6C5;
+            margin: 0;
+            text-align: center;
+        }
+
+        p.profession {
+            position: absolute;
+            left: 50%;
+            top: 25%;
+            transform: translateX(-0%);
+            font-family: vetimus;
+            font-size: 150px; /* Modification de la taille du texte */
+            color: #D23D2D;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Media queries pour les écrans de taille moyenne */
+        @media screen and (min-width: 768px) {
+            p.name {
+                font-size: 200px;
+            }
+            p.profession {
+                font-size: 150px;
+            
+        }
+    </style>
+</head>
+<body>
+    <p class="name">MATHIS<br>SEREMES</p>
+    <p class="profession">Mes photos :</p>
+
+    <div id="photo">
+        <img src="20231205210104_IMG_4407.jpg" alt="Votre image" class="active">
+        <img src="20230612133025_IMG_1628-01.jpeg" alt="Votre image">
+        <img src="20230816221942_IMG_9678.jpg" alt="Votre image">
+        <img src="IMG_0089.jpg" alt="Votre image">
+        <img src="IMG_2103.jpg" alt="Votre image">
+        <img src="IMG_2291.jpg" alt="Votre image">
+        <img src="IMG_9692.jpg" alt="Votre image">
+        <img src="IMG_9990.jpg" alt="Votre image">
+        <img src="IMG_9955.jpg" alt="Votre image">
+        <img src="IMG_1581.jpg" alt="Votre image">
+        <img src="IMG_0623.jpg" alt="Votre image">
+        <img src="20231205210818_IMG_4414.jpg" alt="Votre image">
+        <img src="20231227230449_IMG_6201.jpg" alt="Votre image">
+        <img src="IMG_2296.jpg" alt="Votre image">
+        <img src="20231122195354_IMG_4087.jpg" alt="Votre image">
+        <img src="20230716135743_IMG_5079.jpg" alt="Votre image">
+        <img src="20230715175633_IMG_4995.jpg" alt="Votre image">
+        <img src="20230410175937_IMG_6562-01.jpeg
+        " alt="Votre image">
+
+
+    </div>
+
+    <script>
+        var images = document.querySelectorAll("#photo img");
+        var currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add("active");
+        }
+
+        images.forEach(function(image, index) {
+            image.addEventListener("click", function() {
+                showNextImage();
+            });
+        });
+
+        images[currentIndex].classList.add("active");
+    </script>
+</body>
+</html>
